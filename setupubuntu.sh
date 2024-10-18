@@ -1,5 +1,8 @@
 apt-get update && apt-get -y upgrade
-apt-get install -y zsh neofetch lsb-release python3-dev curl wget git
+apt-get install -y zsh python3-dev 
+apt-get install -y curl wget git
+apt-get install -y lsb-release
+apt-get install -y neofetch
 cat > /root/.zshrc <<-EOM
 export ZSH_DISABLE_COMPFIX=true
 export TERM=xterm-256color
