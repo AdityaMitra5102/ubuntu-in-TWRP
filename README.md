@@ -6,15 +6,20 @@ This uses Termux to configure the operating system before actually booting it.
 
 ### Installation steps
 
-1. Install termux from F-Droid https://f-droid.org/en/packages/com.termux/
-2. Install TWRP and preferably root the phone. Tutorials are specific to your particular device and probably available on XDA-Forums
-5. Download script: `git clone https://github.com/AdityaMitra5102/ubuntu-in-TWRP.git`
-6. Go to script folder: `cd ubuntu-in-TWRP`
-7. Give execution permission: `chmod +x ubuntu.sh`
-8. Run the script: `./ubuntu.sh`
-9. Now just start ubuntu: `./startubuntu.sh` (Optional, to test ubuntu from Termux)
-10. Reboot to Recovery on TWRP
-11. Select Advanced -> File Explorer
-12. Navigate to /data/data/com.termux/files/home/ubuntu-in-termux
-13. Tap on the floating button and select 'Open terminal here'
-14. Start Ubuntu: `sh start.sh`
+1. Install TWRP and preferably root the phone. Tutorials are specific to your particular device and probably available on XDA-Forums
+2. Install termux from F-Droid https://f-droid.org/en/packages/com.termux/
+3. Open Termux
+4. Update termux: `apt-get update && apt-get -y upgrade`
+5. Install Git: `apt-get install -y git`
+6. Download script: `git clone https://github.com/AdityaMitra5102/ubuntu-in-TWRP.git`
+7. Go to script folder: `cd ubuntu-in-TWRP`
+8. Give execution permission: `chmod +x ubuntu.sh`
+9. Run the script: `./ubuntu.sh`
+10. Now just start ubuntu: `./startubuntu.sh`
+11. Make Setup executable: `chmod +x setupubuntu.sh`
+12. Run setup: `./setupubuntu.sh`
+13. Reboot to Recovery on TWRP
+14. Select Advanced -> File Explorer
+15. Navigate to /data/data/com.termux/files/home/ubuntu-in-termux
+16. Tap on the floating button and select 'Open terminal here'
+17. Start Ubuntu: `sh start.sh`

@@ -117,16 +117,7 @@ printf "\x1b[38;5;214m[${time1}]\e[0m \x1b[38;5;83m[Installer thread/INFO]:\e[0m
 printf "\x1b[38;5;214m[${time1}]\e[0m \x1b[38;5;83m[Installer thread/INFO]:\e[0m \x1b[38;5;87m The installation has been completed! You can now launch Ubuntu with ./startubuntu.sh\n"
 printf "\e[0m"
 
-cat > ./ubuntu-fs/root/.zshrc <<-EOM
-export ZSH_DISABLE_COMPFIX=true
-export TERM=xterm-256color
-export PARH=$PATH:/usr/local/sbin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/games:/usr/local/games
-export PYTHONHASHSEED=0
-EOM
-
-proot --link2symlink -0 -r ubuntu-fs -b /dev -b /proc -b /sys -b ubuntu-fs/tmp:/dev/shm -b /data/data/com.termux -b /:/host-rootfs -b /sdcard -b /storage -b /mnt -w /root /usr/bin/env -i HOME=/root PATH=/usr/local/sbin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/games:/usr/local/games TERM=xterm-256color LANG=C.UTF-8 apt-get update
-proot --link2symlink -0 -r ubuntu-fs -b /dev -b /proc -b /sys -b ubuntu-fs/tmp:/dev/shm -b /data/data/com.termux -b /:/host-rootfs -b /sdcard -b /storage -b /mnt -w /root /usr/bin/env -i HOME=/root PATH=/usr/local/sbin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/games:/usr/local/games TERM=xterm-256color LANG=C.UTF-8 apt-get upgrade -y
-proot --link2symlink -0 -r ubuntu-fs -b /dev -b /proc -b /sys -b ubuntu-fs/tmp:/dev/shm -b /data/data/com.termux -b /:/host-rootfs -b /sdcard -b /storage -b /mnt -w /root /usr/bin/env -i HOME=/root PATH=/usr/local/sbin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/games:/usr/local/games TERM=xterm-256color LANG=C.UTF-8 apt-get install -y git neofetch curl wget python3-dev zsh
+cp setupubuntu.sh ubuntu-fs
 
 }
 
