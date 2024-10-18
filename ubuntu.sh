@@ -4,6 +4,7 @@ time1="$( date +"%r" )"
 
 install1 () {
 apt-get update && apt-get upgrade -y
+apt-get update
 apt-get install -y wget proot git
 mkdir -p mnt
 directory=ubuntu-fs
