@@ -9,8 +9,8 @@ This uses Termux to configure the operating system before actually booting it.
 1. Install TWRP and preferably root the phone. Tutorials are specific to your particular device and probably available on XDA-Forums
 2. Install termux from F-Droid https://f-droid.org/en/packages/com.termux/
 3. Open Termux
-4. Update termux: `apt-get update && apt-get -y upgrade`
-5. Install Git: `apt-get install -y git`
+4. Update termux: `pkg update`
+5. Install Git: `pkg install git`
 6. Download script: `git clone https://github.com/AdityaMitra5102/ubuntu-in-TWRP.git`
 7. Go to script folder: `cd ubuntu-in-TWRP`
 8. Give execution permission: `chmod +x ubuntu.sh`
