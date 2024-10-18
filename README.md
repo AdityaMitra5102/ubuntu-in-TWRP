@@ -1,30 +1,20 @@
-# ubuntu-in-termux
+# Ubuntu in TWRP
 
-[![DISCORD](https://img.shields.io/badge/Chat-On%20Discord-738BD7.svg?style=for-the-badge)](https://discord.gg/Xaqkdeh)
+This is a fork of the Ubuntu in Termux Project but it allows you to run Ubuntu on TWRP without actually booting into Android. It is more like dual booting an android device.
 
-## What's This?
-
-This is a script that allows you to install Ubuntu in your termux application without a rooted device
-
-## Updates
-
-**• Updated to ubuntu 22.04**
-
-## Important
-
-**• If you have to use ubuntu in termux with a x86/i\*86 architecture or prefer ubuntu 19.10 you can use this branch -> https://github.com/MFDGaming/ubuntu-in-termux/tree/ubuntu19.10**
-
-**• If you get an error message that says "Fatal Kernel too old" you have to uncomment the line that reads "command+=" -k 4.14.81"" (remove the # that is located in front of the line) in the "startubuntu.sh" file**
+This uses Termux to configure the operating system before actually booting it.
 
 ### Installation steps
 
-1. Update termux: `apt-get update && apt-get upgrade -y`
-2. Install wget: `apt-get install wget -y`
-3. Install proot: `apt-get install proot -y`
-4. Install git: `apt-get install git -y`
-5. Go to HOME folder: `cd ~`
-6. Download script: `git clone https://github.com/MFDGaming/ubuntu-in-termux.git`
-7. Go to script folder: `cd ubuntu-in-termux`
-8. Give execution permission: `chmod +x ubuntu.sh`
-9. Run the script: `./ubuntu.sh -y`
-10. Now just start ubuntu: `./startubuntu.sh`
+1. Install termux from F-Droid https://f-droid.org/en/packages/com.termux/
+2. Install TWRP and preferably root the phone. Tutorials are specific to your particular device and probably available on XDA-Forums
+5. Download script: `git clone https://github.com/AdityaMitra5102/ubuntu-in-TWRP.git`
+6. Go to script folder: `cd ubuntu-in-TWRP`
+7. Give execution permission: `chmod +x ubuntu.sh`
+8. Run the script: `./ubuntu.sh`
+9. Now just start ubuntu: `./startubuntu.sh` (Optional, to test ubuntu from Termux)
+10. Reboot to Recovery on TWRP
+11. Select Advanced -> File Explorer
+12. Navigate to /data/data/com.termux/files/home/ubuntu-in-termux
+13. Tap on the floating button and select 'Open terminal here'
+14. Start Ubuntu: `sh start.sh`

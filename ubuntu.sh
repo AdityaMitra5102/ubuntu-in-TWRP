@@ -3,6 +3,9 @@
 time1="$( date +"%r" )"
 
 install1 () {
+apt-get update && apt-get upgrade -y
+apt-get install -y wget proot git
+mkdir -p mnt
 directory=ubuntu-fs
 UBUNTU_VERSION=jammy
 if [ -d "$directory" ];then
@@ -114,23 +117,17 @@ printf "\x1b[38;5;214m[${time1}]\e[0m \x1b[38;5;83m[Installer thread/INFO]:\e[0m
 printf "\x1b[38;5;214m[${time1}]\e[0m \x1b[38;5;83m[Installer thread/INFO]:\e[0m \x1b[38;5;87m The installation has been completed! You can now launch Ubuntu with ./startubuntu.sh\n"
 printf "\e[0m"
 
-}
-if [ "$1" = "-y" ];then
-install1
-elif [ "$1" = "" ];then
-printf "\x1b[38;5;214m[${time1}]\e[0m \x1b[38;5;127m[QUESTION]:\e[0m \x1b[38;5;87m Do you want to install ubuntu-in-termux? [Y/n] "
+cat > ./ubuntu-fs/root/.zshrc <<-EOM
+export ZSH_DISABLE_COMPFIX=true
+export TERM=xterm-256color
+export PARH=$PATH:/usr/local/sbin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/games:/usr/local/games
+export PYTHONHASHSEED=0
+EOM
 
-read cmd1
-if [ "$cmd1" = "y" ];then
+proot --link2symlink -0 -r ubuntu-fs -b /dev -b /proc -b /sys -b ubuntu-fs/tmp:/dev/shm -b /data/data/com.termux -b /:/host-rootfs -b /sdcard -b /storage -b /mnt -w /root /usr/bin/env -i HOME=/root PATH=/usr/local/sbin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/games:/usr/local/games TERM=xterm-256color LANG=C.UTF-8 apt-get update
+proot --link2symlink -0 -r ubuntu-fs -b /dev -b /proc -b /sys -b ubuntu-fs/tmp:/dev/shm -b /data/data/com.termux -b /:/host-rootfs -b /sdcard -b /storage -b /mnt -w /root /usr/bin/env -i HOME=/root PATH=/usr/local/sbin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/games:/usr/local/games TERM=xterm-256color LANG=C.UTF-8 apt-get upgrade -y
+proot --link2symlink -0 -r ubuntu-fs -b /dev -b /proc -b /sys -b ubuntu-fs/tmp:/dev/shm -b /data/data/com.termux -b /:/host-rootfs -b /sdcard -b /storage -b /mnt -w /root /usr/bin/env -i HOME=/root PATH=/usr/local/sbin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/games:/usr/local/games TERM=xterm-256color LANG=C.UTF-8 apt-get install -y git neofetch curl wget python3-dev zsh
+
+}
+
 install1
-elif [ "$cmd1" = "Y" ];then
-install1
-else
-printf "\x1b[38;5;214m[${time1}]\e[0m \x1b[38;5;203m[ERROR]:\e[0m \x1b[38;5;87m Installation aborted.\n"
-printf "\e[0m"
-exit
-fi
-else
-printf "\x1b[38;5;214m[${time1}]\e[0m \x1b[38;5;203m[ERROR]:\e[0m \x1b[38;5;87m Installation aborted.\n"
-printf "\e[0m"
-fi
