@@ -20,6 +20,6 @@ This uses Termux to configure the operating system before actually booting it.
 12. Run setup: `./setupubuntu.sh`
 13. Reboot to Recovery on TWRP
 14. Select Advanced -> File Explorer
-15. Navigate to /data/data/com.termux/files/home/ubuntu-in-termux
+15. Navigate to /data/data/com.termux/files/home/ubuntu-in-TWRP
 16. Tap on the floating button and select 'Open terminal here'
 17. Start Ubuntu: `sh start.sh`
