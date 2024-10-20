@@ -1,4 +1,6 @@
 # Ubuntu in TWRP
+![image](img1.jpg)
+![image](img2.jpg)
 
 This is a fork of the Ubuntu in Termux Project but it allows you to run Ubuntu on TWRP without actually booting into Android. It is more like dual booting an android device.
 
